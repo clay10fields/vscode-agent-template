@@ -99,6 +99,3 @@ litellm_settings:
   cache_params:
     type: local
 
-general_settings:
-  master_key: litellm-local
-  database_url: sqlite:///./.litellm-cache/litellm.db
