@@ -1,0 +1,38 @@
+---
+
+# NeuroTrader project context
+
+This project is **NeuroTrader** — a self-improving paper-trading bot that pulls signals from TradingView, scores them with a learning loop, and writes outcomes to SQLite. Tests cover ~1,900 paths, all currently green on CI.
+
+## Repos involved
+
+- `clay10fields/neuro-trade-bot` — the bot itself
+- `clay10fields/tradingview-mcp` — the MCP server that exposes TradingView signals to agents
+- `clay10fields/vscode-agent-template` — this template (you're inside an instance of it)
+
+## Where things live
+
+- Source: `~/Documents/GitHub/neuro-trade-bot/`
+- Trade history DB: `~/Documents/GitHub/neuro-trade-bot/data/neurotrader.db`
+- Backups: `~/Documents/neurotrader-backups/`
+- Trading Journal vault: `~/Documents/NeuroTrader-Journal/` (Obsidian-friendly)
+
+## Bot lifecycle commands
+
+- `bash start-bot.sh` — start the trading loop in tmux (paper mode by default)
+- `bash backup-everything.sh` — full local backup
+- `bash save-everything-final.sh` — push to GitHub + backup
+
+## Slash commands available in this profile
+
+- `/run-cycle` — trigger one full trade evaluation cycle
+- `/audit-ghost-code` — scan for unreachable / dormant code paths
+- `/check-trades` — summarize recent trade outcomes from the SQLite DB
+- `/journal` — write today's trading journal entry to the Obsidian vault
+
+## Things to remember
+
+- This bot is paper-only. Never wire it to a real exchange without a dedicated audit pass.
+- The learning loop reads `trade_outcomes` and `signal_scores` tables — don't rename those without updating the journal MCP.
+- CI breaks if `fastapi`, `uvicorn`, or `httpx` are removed from requirements.txt.
+- Three dormant features were wired in recently: canary, auto-backup, cluster caps. Don't unwire them.

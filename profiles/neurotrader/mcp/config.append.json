@@ -1,0 +1,24 @@
+{
+  "_comment": "Merged into target/mcp/config.json by post-install.sh",
+  "mcpServers": {
+    "trading-journal": {
+      "command": "python",
+      "args": [
+        "-m",
+        "trading_journal.server"
+      ],
+      "env": {
+        "JOURNAL_VAULT_PATH": "${JOURNAL_VAULT_PATH}",
+        "NEUROTRADER_DB_PATH": "${NEUROTRADER_DB_PATH}",
+        "QDRANT_URL": "${QDRANT_URL}",
+        "QDRANT_API_KEY": "${QDRANT_API_KEY}"
+      }
+    },
+    "tradingview": {
+      "command": "node",
+      "args": [
+        "${HOME}/tradingview-mcp/src/server.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "_comment": "Lives at ~/.continue/config.json after setup.sh. Continue.dev — inline autocomplete + side chat.",
+  "models": [
+    {
+      "title": "Co-Lead (LiteLLM)",
+      "provider": "openai",
+      "model": "co-lead",
+      "apiBase": "http://localhost:4000",
+      "apiKey": "litellm-local"
+    },
+    {
+      "title": "Code Gen (LiteLLM)",
+      "provider": "openai",
+      "model": "code-gen",
+      "apiBase": "http://localhost:4000",
+      "apiKey": "litellm-local"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Autocomplete (LiteLLM)",
+    "provider": "openai",
+    "model": "autocomplete",
+    "apiBase": "http://localhost:4000",
+    "apiKey": "litellm-local"
+  },
+  "embeddingsProvider": {
+    "provider": "ollama",
+    "model": "nomic-embed-text"
+  },
+  "allowAnonymousTelemetry": false
+}

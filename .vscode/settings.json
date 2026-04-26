@@ -1,0 +1,36 @@
+{
+  "cline.apiProvider": "openai",
+  "cline.openAiBaseUrl": "http://localhost:4000",
+  "cline.openAiApiKey": "litellm-local",
+  "cline.openAiModelId": "head-dev",
+  "cline.alwaysAllowReadOnly": true,
+  "cline.alwaysAllowWrite": false,
+  "cline.alwaysAllowExecute": false,
+  "cline.alwaysAllowMcp": true,
+  "cline.customInstructions": "See .cline/rules.md and the agents/ folder for role prompts. Default to head-dev in Plan mode and code-gen in Act mode.",
+
+  "roo-cline.apiProvider": "openai",
+  "roo-cline.openAiBaseUrl": "http://localhost:4000",
+  "roo-cline.openAiApiKey": "litellm-local",
+  "roo-cline.openAiModelId": "code-gen",
+
+  "continue.telemetryEnabled": false,
+  "continue.enableTabAutocomplete": true,
+
+  "python.analysis.typeCheckingMode": "basic",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.fixAll": "explicit" }
+  },
+
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggestSelection": "first",
+  "errorLens.enabled": true,
+  "errorLens.gutterIconsEnabled": true,
+  "files.watcherExclude": {
+    "**/.litellm-cache/**": true,
+    "**/.cline/cache/**": true,
+    "**/qdrant-data/**": true
+  }
+}
