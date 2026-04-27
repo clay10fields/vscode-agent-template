@@ -25,5 +25,8 @@ if [ -z "${OPENROUTER_API_KEY:-}" ]; then
 fi
 
 echo ">> Starting LiteLLM proxy on :$PORT  (uvx, Python 3.13)"
-exec uvx --python 3.13 --from 'litellm[proxy]' \
-  litellm --config "$ROOT/litellm.config.yaml" --port "$PORT" --host 127.0.0.1
+echo "   binding to: 127.0.0.1:$PORT"
+exec uvx --python 3.13 --from 'litellm[proxy]' litellm \
+  --config "$ROOT/litellm.config.yaml" \
+  --port "$PORT" \
+  --host 127.0.0.1
